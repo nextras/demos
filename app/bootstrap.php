@@ -28,7 +28,7 @@ $container->application->run();
 
 function getNextrasDemosSource($path)
 {
-	if (file_exists(APP_DIR . '../libs/nextras/' . $path)) {
+	if (file_exists(APP_DIR . '/../libs/nextras/' . $path)) {
 		return APP_DIR . '/../libs/nextras/' . $path;
 	} else {
 		return APP_DIR . '/../../' . $path;
@@ -37,7 +37,7 @@ function getNextrasDemosSource($path)
 
 function getNextrasDemosSourceWeb($path)
 {
-	if (file_exists(APP_DIR . '../libs/nextras/' . $path)) {
+	if (file_exists(APP_DIR . '/../libs/nextras/' . $path)) {
 		return '/../libs/nextras/' . $path;
 	} else {
 		return '/../../' . $path;
