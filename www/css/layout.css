@@ -18,3 +18,5 @@ form > table th, form > table td { padding: 4px 6px; }
 form > table th { vertical-align: top }
 form > table tr { border-bottom: 1px solid #ddd; }
 form > table tr:last-child { border: none; }
+
+.footer { color: #888; font-size: 13px; margin-top: 200px; }
