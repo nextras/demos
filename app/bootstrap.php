@@ -10,11 +10,20 @@ require __DIR__ . '/../libs/autoload.php';
 $configurator = new Nette\Config\Configurator;
 $configurator->enableDebugger(__DIR__ . '/../log');
 $configurator->setTempDirectory(__DIR__ . '/../temp');
-$configurator->createRobotLoader()
-	->addDirectory(APP_DIR . '/../../datagrid/Nextras')
-	->addDirectory(APP_DIR . '/../../forms/Nextras')
-	->addDirectory(APP_DIR)
-	->register();
+
+$loader = $configurator->createRobotLoader();
+$dirs = array(
+	APP_DIR . '/../../application/Nextras',
+	APP_DIR . '/../../datagrid/Nextras',
+	APP_DIR . '/../../forms/Nextras',
+);
+foreach ($dirs as $dir) {
+	if (file_exists($dir)) {
+		$loader->addDirectory($dir);
+	}
+}
+$loader->addDirectory(APP_DIR);
+$loader->register();
 
 $configurator->addConfig(__DIR__ . '/config.neon');
 $container = $configurator->createContainer();
