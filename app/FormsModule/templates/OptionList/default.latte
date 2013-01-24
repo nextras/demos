@@ -6,5 +6,5 @@
 
 {ifset $formValues}
 	<h5>Form submitted with values</h5>
-	{?dump($formValues)}
+	{!= \Nette\Diagnostics\Debugger::dump($formValues, TRUE)}
 {/ifset}
