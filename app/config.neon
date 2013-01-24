@@ -1,0 +1,23 @@
+common:
+	parameters:
+
+	php:
+		date.timezone: Europe/Prague
+
+	nette:
+		database:
+			dsn: 'sqlite:%appDir%/DatagridModule/model/users.s3db'
+
+		application:
+			mapping:
+				*: Nextras\Demos\*\*Presenter
+
+		latte:
+			macros:
+				- Nextras\Forms\Latte\Macros::install
+
+	factories:
+
+production < common:
+
+development < common:

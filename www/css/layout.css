@@ -1,0 +1,20 @@
+body { padding-top: 20px; }
+h1 { margin: 0; }
+
+.addon-block { background: #eee; border-radius: 5px; padding: 10px 30px; margin-bottom: 20px; }
+.addon-block h2 a { color: #333; }
+.addon-block h2 small { font-size: 100%; }
+.addon-block table { margin: 10px 0 5px; }
+.addon-block th { text-align: right; padding-right: 10px; }
+
+.bulk { border: 1px solid #ddd; border-radius: 3px; background: #fff; padding: 10px 15px; display: block; text-decoration: none; color: #333; }
+.bulk:hover { text-decoration: none; color: #333; border-color: #ccc; cursor: pointer; box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); }
+.bulk h3 {}
+.bulk h3 small { display: block; font-size: 22px; }
+.bulk p { font-size: 15px; }
+.bulk p small { font-size: 13px; }
+
+form > table th, form > table td { padding: 4px 6px; }
+form > table th { vertical-align: top }
+form > table tr { border-bottom: 1px solid #ddd; }
+form > table tr:last-child { border: none; }

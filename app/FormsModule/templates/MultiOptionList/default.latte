@@ -1,0 +1,38 @@
+{block #content}
+
+<h4>MultiOptionList demo</h4>
+
+{form form}
+<table>
+<tr>
+	<th>{label list/}</th>
+	<td>{input list}</td>
+</tr>
+<tr>
+	<th>{label list2/}</th>
+	<td>{input list2}</td>
+</tr>
+<tr>
+	<th>{label list3/}</th>
+	<td>
+		{foreach $form['list3'] as $key => $label}
+			{label list3:$key class => checkbox}
+				{input list3:$key}
+				<i class="icon-arrow-right"></i>
+				{$label}
+				<i class="icon-arrow-left"></i>
+			{/label}
+		{/foreach}
+	</td>
+</tr>
+<tr>
+	<td></td>
+	<td>{input save}</td>
+</tr>
+</table>
+{/form}
+
+{ifset $formValues}
+	<h5>Form submitted with values</h5>
+	{?dump($formValues)}
+{/ifset}

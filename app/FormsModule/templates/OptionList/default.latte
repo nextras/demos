@@ -1,0 +1,10 @@
+{block #content}
+
+<h4>OptionList demo</h4>
+
+{control form}
+
+{ifset $formValues}
+	<h5>Form submitted with values</h5>
+	{?dump($formValues)}
+{/ifset}

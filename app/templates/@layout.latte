@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Nextras Datagrid examples">
+	<title>{block title|striptags}Nextras Datagrid examples{/block}</title>
+
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap.css">
+	<link rel="stylesheet" href="{$basePath}/css/layout.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script src="{$basePath}/js/nette.ajax.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+
+	{if !empty($header)}
+		{include $header}
+	{/if}
+
+	<script>
+		$(function() {
+			$.nette.init();
+		});
+	</script>
+</head>
+<body>
+<script> document.body.className+=' js' </script>
+{if !empty($addonGitHub)}
+<a href="{$addonGitHub}"><img style="position: absolute; top: 0; right: 0; border: 0;" src="{$basePath}/img/forkme.png" alt="Fork me on GitHub"></a>
+{/if}
+
+<div class="container">
+<div class="row">
+	<div class="span12">
+		<div class="clearfix">
+			<h1 class="pull-left"><a href="{link :Homepage:}">Nextras demos</a></h1>
+			<div class="pull-right">
+				<br>
+					<a href="https://github.com/nextras">Nextras GitHub</a> |
+					<a href="http://nette.merxes.cz/addons/www/nextras">Nette Addons &ndash; Nextras</a>
+			</div>
+		</div>
+		<hr>
+	</div>
+	<div class="span12" n:snippet="flashes">
+		<div n:foreach="$flashes as $flash" class="alert alert-info">{$flash->message}</div>
+	</div>
+</div>
+{if !empty($addonName)}
+<div class="row">
+<div class="span12">
+<div class="addon-block clearfix">
+	<h2 class="pull-left">
+		<a href="{link Default:}"><small>Nextras\</small>{$addonName}</a>
+	</h2>
+	<table class="pull-right">
+		<tr n:if="!empty($addonComposer)"><th>Composer</th><td><code>composer require {$addonComposer}</code></td></tr>
+		<tr n:if="!empty($addonGitHub)"><th>GitHub</th><td><a href="{$addonGitHub}">{$addonGitHub}</a></td></tr>
+		<tr n:if="!empty($addonDoc)"><th>Documentation</th><td><a href="{$addonDoc}">{$addonDoc}</a></td></tr>
+	</table>
+</div>
+<hr>
+</div>
+</div>
+{/if}
+<div class="row">
+	<div class="span12">
+		{include #content}
+	</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+	"name": "nextras/demos",
+	"description": "Demos of Nextras components for Nette Framework.",
+	"homepage": "https://github.com/nextras/demos",
+	"license": ["MIT"],
+	"authors": [
+		{
+			"name": "Nextras Community",
+			"homepage": "https://github.com/nextras?tab=members"
+		}
+	],
+	"config": {
+		"vendor-dir": "libs"
+	},
+	"require": {
+		"php": ">= 5.3.0",
+		"nette/nette": "dev-master",
+		"nextras/application": "dev-master",
+		"nextras/datagrid": "dev-master",
+		"nextras/forms": "dev-master"
+	}
+}
