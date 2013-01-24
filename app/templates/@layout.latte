@@ -55,6 +55,7 @@
 	<table class="pull-right">
 		<tr n:if="!empty($addonComposer)"><th>Composer</th><td><code>composer require {$addonComposer}</code></td></tr>
 		<tr n:if="!empty($addonGitHub)"><th>GitHub</th><td><a href="{$addonGitHub}">{$addonGitHub}</a></td></tr>
+		<tr n:if="!empty($addonForum)"><th>Forum</th><td><a href="{$addonForum}">{$addonForum|truncate:40}</a></td></tr>
 		<tr n:if="!empty($addonDoc)"><th>Documentation</th><td><a href="{$addonDoc}">{$addonDoc}</a></td></tr>
 	</table>
 </div>

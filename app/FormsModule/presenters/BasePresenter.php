@@ -15,6 +15,7 @@ abstract class BasePresenter extends Demos\BasePresenter
 		$this->template->addonGitHub = 'https://github.com/nextras/forms';
 		$this->template->addonDoc = '';
 		$this->template->addonComposer = 'nextras/forms';
+		$this->template->addonForum = 'http://forum.nette.org/cs/13417-nextras-forms-uzitecne-formularove-komponenty';
 
 		$this->template->header = __DIR__ . '/../templates/@header.latte';
 
