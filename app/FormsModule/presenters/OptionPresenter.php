@@ -6,6 +6,7 @@ use Nextras;
 use Nextras\Forms\Controls;
 use Nette;
 use Nette\Forms\Container;
+use Nette\Application\UI\Form;
 
 final class OptionListPresenter extends BasePresenter
 {
@@ -14,11 +15,10 @@ final class OptionListPresenter extends BasePresenter
 	{
 		parent::startup();
 
-		Container::extensionMethod('addOptionList', function (Container $container, $name, $label = NULL, array $items = NULL) {
+		Container::extensionMethod('addOptionList', function(Container $container, $name, $label = NULL, array $items = NULL) {
 			return $container[$name] = new Controls\OptionList($label, $items);
 		});
 	}
-
 
 	public function renderDefault()
 	{
@@ -29,7 +29,7 @@ final class OptionListPresenter extends BasePresenter
 
 	public function createComponentForm()
 	{
-		$form = new Nette\Application\UI\Form;
+		$form = new Form;
 		$form->addOptionList('list', 'Pick value', ['sci-fi', 'romantic', 'thriller', 'drama'])
 			->setRequired();
 
@@ -39,7 +39,7 @@ final class OptionListPresenter extends BasePresenter
 		return $form;
 	}
 
-	public function processForm(Nette\Application\UI\Form $form)
+	public function processForm(Form $form)
 	{
 		$this->saveFormValues($form->getValues());
 		$this->redirect('this');

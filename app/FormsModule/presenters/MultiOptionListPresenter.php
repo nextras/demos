@@ -6,7 +6,7 @@ use Nextras;
 use Nextras\Forms\Controls;
 use Nette;
 use Nette\Forms\Container;
-use Nette\Forms\Form;
+use Nette\Application\UI\Form;
 
 final class MultiOptionListPresenter extends BasePresenter
 {
@@ -15,7 +15,7 @@ final class MultiOptionListPresenter extends BasePresenter
 	{
 		parent::startup();
 
-		Container::extensionMethod('addMultiOptionList', function (Container $container, $name, $label = NULL, array $items = NULL) {
+		Container::extensionMethod('addMultiOptionList', function(Container $container, $name, $label = NULL, array $items = NULL) {
 			return $container[$name] = new Controls\MultiOptionList($label, $items);
 		});
 	}
@@ -31,7 +31,7 @@ final class MultiOptionListPresenter extends BasePresenter
 
 	public function createComponentForm()
 	{
-		$form = new Nette\Application\UI\Form;
+		$form = new Form;
 		$form->addMultiOptionList('list', 'Pick value 1.', ['sci-fi', 'romantic', 'thriller', 'drama'])
 			->setRequired();
 
@@ -47,7 +47,7 @@ final class MultiOptionListPresenter extends BasePresenter
 		return $form;
 	}
 
-	public function processForm(Nette\Application\UI\Form $form)
+	public function processForm(Form $form)
 	{
 		$this->saveFormValues($form->getValues());
 		$this->redirect('this');
