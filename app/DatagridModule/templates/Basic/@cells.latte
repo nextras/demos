@@ -1,3 +1,10 @@
+{define col-filter-firstname}
+	<div class="input-prepend">
+		<span class="add-on">@</span>
+		{input $column->name}
+	</div>
+{/define}
+
 {define col-virtual-gender}
 <td>
 	{if $row->gender === 'male'}
