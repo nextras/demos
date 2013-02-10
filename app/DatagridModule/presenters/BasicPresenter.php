@@ -50,7 +50,7 @@ final class BasicPresenter extends BasePresenter
 
 		$grid->setEditFormCallback($this->saveData);
 
-		$grid->addCellsTemplate(getNextrasDemosSource('datagrid/bootstrap-style/@datagrid.latte'));
+		$grid->addCellsTemplate(getNextrasDemosSource('datagrid/bootstrap-style/@bootstrap3.datagrid.latte'));
 		$grid->addCellsTemplate(__DIR__ . '/../templates/Basic/@cells.latte');
 		return $grid;
 	}
