@@ -5,7 +5,7 @@ namespace Nextras\Demos\Datagrid;
 use Nette;
 use Nextras;
 
-final class BasicPresenter extends BasePresenter
+final class FullPresenter extends BasePresenter
 {
 	/** @var Nette\Database\Connection @inject */
 	public $connection;
@@ -46,7 +46,7 @@ final class BasicPresenter extends BasePresenter
 		$grid->setEditFormCallback($this->saveData);
 
 		$grid->addCellsTemplate(getNextrasDemosSource('datagrid/bootstrap-style/@bootstrap3.datagrid.latte'));
-		$grid->addCellsTemplate(__DIR__ . '/../templates/Basic/@cells.latte');
+		$grid->addCellsTemplate(__DIR__ . '/../templates/Full/@cells.latte');
 		return $grid;
 	}
 
