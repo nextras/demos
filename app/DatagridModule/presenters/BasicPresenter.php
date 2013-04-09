@@ -7,14 +7,9 @@ use Nextras;
 
 final class BasicPresenter extends BasePresenter
 {
+	/** @var Nette\Database\Connection @inject */
+	public $connection;
 
-	/** @var Nette\Database\Connection */
-	private $connection;
-
-	public function injectConnection(Nette\Database\Connection $connection)
-	{
-		$this->connection = $connection;
-	}
 
 	public function createComponentDatagrid()
 	{

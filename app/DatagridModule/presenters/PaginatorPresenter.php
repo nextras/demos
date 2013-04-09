@@ -5,18 +5,12 @@ namespace Nextras\Demos\Datagrid;
 use Nette;
 use Nette\Utils\Paginator;
 use Nextras;
-use Nextras\Demos\VisualPaginator;
 
 final class PaginatorPresenter extends BasePresenter
 {
+	/** @var Nette\Database\Connection @inject */
+	public $connection;
 
-	/** @var Nette\Database\Connection */
-	private $connection;
-
-	public function injectConnection(Nette\Database\Connection $connection)
-	{
-		$this->connection = $connection;
-	}
 
 	public function createComponentDatagrid()
 	{
