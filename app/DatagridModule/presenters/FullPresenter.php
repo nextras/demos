@@ -23,7 +23,7 @@ final class FullPresenter extends BasePresenter
 		$grid->addColumn('virtual-gender', 'Virtual gender');
 
 		$grid->setDataSourceCallback($this->getDataSource);
-		$grid->setPagination(25, $this->getDataSourceSum);
+		$grid->setPagination(10, $this->getDataSourceSum);
 		$grid->setFilterFormFactory(function() {
 			$form = new Nette\Forms\Container;
 			$form->addText('firstname');
@@ -51,10 +51,13 @@ final class FullPresenter extends BasePresenter
 		return $grid;
 	}
 
-	public function getDataSource($filter, $order, Paginator $paginator)
+	public function getDataSource($filter, $order, Paginator $paginator = NULL)
 	{
 		$selection = $this->prepareDataSource($filter, $order);
-		return $selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
+		if ($paginator) {
+			$selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
+		}
+		return $selection;
 	}
 
 	public function getDataSourceSum($filter, $order)
