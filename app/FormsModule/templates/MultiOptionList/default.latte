@@ -15,12 +15,12 @@
 <tr>
 	<th>{label list3/}</th>
 	<td>
-		{foreach $form['list3'] as $key => $label}
+		{foreach $form['list3']->items as $key => $label}
 			{label list3:$key class => checkbox}
 				{input list3:$key}
-				<i class="icon-arrow-right"></i>
+				&gt;&gt;
 				{$label}
-				<i class="icon-arrow-left"></i>
+				&lt;&lt;
 			{/label}
 		{/foreach}
 	</td>

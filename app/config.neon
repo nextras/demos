@@ -12,10 +12,6 @@ common:
 			mapping:
 				*: Nextras\Demos\*\*Presenter
 
-		latte:
-			macros:
-				- Nextras\Forms\Latte\Macros::install
-
 	factories:
 
 production < common:
