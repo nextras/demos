@@ -4,6 +4,7 @@ namespace Nextras\Demos\Datagrid;
 
 use Nextras;
 use Nextras\Demos;
+use Nette\Utils\Paginator;
 
 abstract class BasePresenter extends Demos\BasePresenter
 {
@@ -18,6 +19,38 @@ abstract class BasePresenter extends Demos\BasePresenter
 		$this->template->addonForum = 'http://forum.nette.org/cs/13165-nextras-datagrid-datagrid-se-vsim-jak-ma-byt';
 
 		$this->template->header = __DIR__ . '/../templates/@header.latte';
+	}
+
+	public function getDataSource($filter, $order, Paginator $paginator = NULL)
+	{
+		$selection = $this->prepareDataSource($filter, $order);
+		if ($paginator) {
+			$selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
+		}
+		return $selection;
+	}
+
+	public function getDataSourceSum($filter, $order)
+	{
+		return $this->prepareDataSource($filter, $order)->count('*');
+	}
+
+	private function prepareDataSource($filter, $order)
+	{
+		$filters = array();
+		foreach ($filter as $k => $v) {
+			if ($k === 'gender' || is_array($v))
+				$filters[$k] = $v;
+			else
+				$filters[$k. ' LIKE ?'] = "%$v%";
+		}
+
+		$selection = $this->connection->table('user')->where($filters);
+		if ($order) {
+			$selection->order(implode(' ', $order));
+		}
+
+		return $selection;
 	}
 
 }

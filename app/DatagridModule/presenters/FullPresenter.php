@@ -3,7 +3,6 @@
 namespace Nextras\Demos\Datagrid;
 
 use Nette;
-use Nette\Utils\Paginator;
 use Nextras;
 
 final class FullPresenter extends BasePresenter
@@ -49,38 +48,6 @@ final class FullPresenter extends BasePresenter
 		$grid->addCellsTemplate(getNextrasDemosSource('datagrid/bootstrap-style/@bootstrap3.datagrid.latte'));
 		$grid->addCellsTemplate(__DIR__ . '/../templates/Full/@cells.latte');
 		return $grid;
-	}
-
-	public function getDataSource($filter, $order, Paginator $paginator = NULL)
-	{
-		$selection = $this->prepareDataSource($filter, $order);
-		if ($paginator) {
-			$selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
-		}
-		return $selection;
-	}
-
-	public function getDataSourceSum($filter, $order)
-	{
-		return $this->prepareDataSource($filter, $order)->count('*');
-	}
-
-	private function prepareDataSource($filter, $order)
-	{
-		$filters = array();
-		foreach ($filter as $k => $v) {
-			if ($k === 'gender')
-				$filters[$k] = $v;
-			else
-				$filters[$k. ' LIKE ?'] = "%$v%";
-		}
-
-		$selection = $this->connection->table('user')->where($filters);
-		if ($order) {
-			$selection->order(implode(' ', $order));
-		}
-
-		return $selection;
 	}
 
 	public function saveData($data)
