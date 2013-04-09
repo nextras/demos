@@ -3,6 +3,7 @@
 namespace Nextras\Demos\Datagrid;
 
 use Nette;
+use Nette\Utils\Paginator;
 use Nextras;
 
 final class FullPresenter extends BasePresenter
@@ -21,8 +22,8 @@ final class FullPresenter extends BasePresenter
 		$grid->addColumn('birthday')->enableSort();
 		$grid->addColumn('virtual-gender', 'Virtual gender');
 
-		$grid->setDataSourceCallback($this->getData);
-
+		$grid->setDataSourceCallback($this->getDataSource);
+		$grid->setPagination(25, $this->getDataSourceSum);
 		$grid->setFilterFormFactory(function() {
 			$form = new Nette\Forms\Container;
 			$form->addText('firstname');
@@ -50,7 +51,18 @@ final class FullPresenter extends BasePresenter
 		return $grid;
 	}
 
-	public function getData($filter, $order)
+	public function getDataSource($filter, $order, Paginator $paginator)
+	{
+		$selection = $this->prepareDataSource($filter, $order);
+		return $selection->limit($paginator->getItemsPerPage(), $paginator->getOffset());
+	}
+
+	public function getDataSourceSum($filter, $order)
+	{
+		return $this->prepareDataSource($filter, $order)->count('*');
+	}
+
+	private function prepareDataSource($filter, $order)
 	{
 		$filters = array();
 		foreach ($filter as $k => $v) {
@@ -65,7 +77,7 @@ final class FullPresenter extends BasePresenter
 			$selection->order(implode(' ', $order));
 		}
 
-		return $selection->limit(30);
+		return $selection;
 	}
 
 	public function saveData($data)
