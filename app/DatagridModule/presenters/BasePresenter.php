@@ -19,6 +19,7 @@ abstract class BasePresenter extends Demos\BasePresenter
 		$this->template->addonForum = 'http://forum.nette.org/cs/13165-nextras-datagrid-datagrid-se-vsim-jak-ma-byt';
 
 		$this->template->header = __DIR__ . '/../templates/@header.latte';
+		$this->invalidateControl('flashes');
 	}
 
 	public function getDataSource($filter, $order, Paginator $paginator = NULL)
