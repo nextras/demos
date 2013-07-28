@@ -1,4 +1,10 @@
 <h4>Form submitted with values</h4>
 {!= \Nette\Diagnostics\Debugger::dump($formValues, TRUE)}
-<script src={$basePath}/assets/js/dumper.js"></script>
-<link rel="stylesheet" type="text/css" href="{$basePath}/assets/css/dumper.css">
+<script src="{$basePath}/js/netteQ.js"></script>
+<script src="{$basePath}/js/dumper.js"></script>
+<script>
+(function(){
+	Nette.Dumper.init();
+})();
+</script>
+<link rel="stylesheet" type="text/css" href="{$basePath}/css/dumper.css">
