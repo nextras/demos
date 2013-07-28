@@ -5,6 +5,5 @@
 {control form}
 
 {ifset $formValues}
-	<h5>Form submitted with values</h5>
-	{!= \Nette\Diagnostics\Debugger::dump($formValues, TRUE)}
+	{include ../@dumper.latte}
 {/ifset}
