@@ -47,9 +47,9 @@ final class FullPresenter extends BasePresenter
 		return $grid;
 	}
 
-	public function saveData($data)
+	public function saveData(Nette\Forms\Container $form)
 	{
-		$this->flashMessage('Saving data: ' . json_encode($data->getValues()));
+		$this->flashMessage('Saving data: ' . json_encode($form->getValues()));
 		$this->invalidateControl('flashes');
 	}
 
