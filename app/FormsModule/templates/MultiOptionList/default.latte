@@ -2,34 +2,38 @@
 
 <h4>MultiOptionList demo</h4>
 
-{form form}
-<table>
-<tr>
-	<th>{label list/}</th>
-	<td>{input list}</td>
-</tr>
-<tr>
-	<th>{label $form['list2']/}</th>
-	<td>{input $form['list2']}</td>
-</tr>
-<tr>
-	<th>{label list3/}</th>
-	<td>
+{form form class => 'form-horizontal'}
+<div class="form-group">
+	{label list class => 'col-sm-3 control-label' /}
+	<div class="col-sm-9">{input list}</div>
+</div>
+
+<div class="form-group">
+	{label $form['list2'] class => 'col-sm-3 control-label' /}
+	<div class="col-sm-9">{input $form['list2']}</div>
+</div>
+
+<div class="form-group">
+	{label list3 class => 'col-sm-3 control-label' /}
+	<div class="col-sm-9">
 		{foreach $form['list3']->items as $key => $label}
-			{label list3:$key class => checkbox}
-				{input list3:$key}
-				&gt;&gt;
-				{$label}
-				&lt;&lt;
-			{/label}
+			<div class="checkbox">
+				{label list3:$key}
+					{input list3:$key}
+					&gt;&gt;
+					{$label}
+					&lt;&lt;
+				{/label}
+			</div>
 		{/foreach}
-	</td>
-</tr>
-<tr>
-	<td></td>
-	<td>{input save}</td>
-</tr>
-</table>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="col-sm-9 col-offset-3">
+		{input save class => 'btn btn-primary'}
+	</div>
+</div>
 {/form}
 
 {ifset $formValues}

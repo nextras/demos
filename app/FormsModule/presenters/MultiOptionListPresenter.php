@@ -24,8 +24,6 @@ final class MultiOptionListPresenter extends BasePresenter
 	{
 		if (isset($this->template->formValues)) {
 			$this['form']->setDefaults($this->template->formValues);
-		} else {
-			$this['form']['list']->setDefaultValue(array(0, 1, 2));
 		}
 	}
 
@@ -33,12 +31,16 @@ final class MultiOptionListPresenter extends BasePresenter
 	{
 		$form = new Form;
 		$form->addMultiOptionList('list', 'Pick value 1.', ['sci-fi', 'romantic', 'thriller', 'drama'])
-			->setRequired();
+			->setDisabled(array(1))
+			->setRequired()
+			->setDefaultValue(array(0, 1, 2));
 
 		$form->addMultiOptionList('list2', 'Pick value 2.', ['sci-fi', 'romantic', 'thriller', 'drama'])
+			->setDisabled(array(2))
 			->addRule(Form::MIN_LENGTH, 'Pick at least two options.', 2);
 
 		$form->addMultiOptionList('list3', 'Pick value 3.', ['sci-fi', 'romantic', 'thriller', 'drama'])
+			->setDisabled(array(3))
 			->addRule(Form::LENGTH, 'Pick zero, one or two options.', array(0, 2));
 
 		$form->addSubmit('save', 'Save');

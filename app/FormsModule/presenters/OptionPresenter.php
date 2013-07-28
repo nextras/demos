@@ -31,6 +31,16 @@ final class OptionListPresenter extends BasePresenter
 	{
 		$form = new Form;
 		$form->addOptionList('list', 'Pick value', ['sci-fi', 'romantic', 'thriller', 'drama'])
+			->setDisabled(array(1))
+			->setRequired()
+			->setDefaultValue(1);
+
+		$form->addOptionList('list2', 'Pick value rendered by object', ['sci-fi', 'romantic', 'thriller', 'drama'])
+			->setDisabled(array(2))
+			->setRequired();
+
+		$form->addOptionList('list3', 'Pick value rendered by item', ['sci-fi', 'romantic', 'thriller', 'drama'])
+			->setDisabled(array(3))
 			->setRequired();
 
 		$form->addSubmit('save', 'Save');
