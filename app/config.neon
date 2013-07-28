@@ -12,6 +12,10 @@ common:
 			mapping:
 				*: Nextras\Demos\*\*Presenter
 
+		latte:
+			macros:
+				- Nextras\Forms\Bridges\Latte\Macros\BS3InputMacros
+
 	factories:
 
 production < common:
