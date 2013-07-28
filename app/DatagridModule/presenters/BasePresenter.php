@@ -4,10 +4,13 @@ namespace Nextras\Demos\Datagrid;
 
 use Nextras;
 use Nextras\Demos;
+use Nette;
 use Nette\Utils\Paginator;
 
 abstract class BasePresenter extends Demos\BasePresenter
 {
+	/** @var Nette\Database\SelectionFactory @inject */
+	public $selectionFactory;
 
 	public function beforeRender()
 	{
@@ -46,7 +49,7 @@ abstract class BasePresenter extends Demos\BasePresenter
 				$filters[$k. ' LIKE ?'] = "%$v%";
 		}
 
-		$selection = $this->connection->table('user')->where($filters);
+		$selection = $this->selectionFactory->table('user')->where($filters);
 		if ($order) {
 			$selection->order(implode(' ', $order));
 		}

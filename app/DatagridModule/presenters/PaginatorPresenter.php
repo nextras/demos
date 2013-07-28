@@ -7,9 +7,6 @@ use Nextras;
 
 final class PaginatorPresenter extends BasePresenter
 {
-	/** @var Nette\Database\Connection @inject */
-	public $connection;
-
 
 	public function createComponentDatagrid()
 	{
