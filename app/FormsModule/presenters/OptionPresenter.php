@@ -7,6 +7,7 @@ use Nextras\Forms\Controls;
 use Nette;
 use Nette\Forms\Container;
 use Nette\Application\UI\Form;
+use Nette\Utils\Html;
 
 final class OptionListPresenter extends BasePresenter
 {
@@ -53,6 +54,26 @@ final class OptionListPresenter extends BasePresenter
 	{
 		$this->saveFormValues($form->getValues());
 		$this->redirect('this');
+	}
+
+	public function createComponentForm2()
+	{
+		$subjects = array(
+			1 => "Artificial person",
+			2 => "Natural person"
+		);
+
+		$form = new Form;
+		$form->addOptionList("type", "I am", $subjects)
+			->setDefaultValue(1)
+			->addCondition(Form::EQUAL, 1)
+				->toggle("cn")
+			->elseCondition()
+				->toggle("id");
+
+		$form->addText("cn", "Company number");
+		$form->addText("id", "ID card number");
+		return $form;
 	}
 
 }
