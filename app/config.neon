@@ -15,6 +15,7 @@ common:
 		latte:
 			macros:
 				- Nextras\Forms\Bridges\Latte\Macros\BS3InputMacros
+				- Nextras\Latte\Macros\RedefineMacro
 
 	factories:
 

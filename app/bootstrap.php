@@ -16,6 +16,7 @@ $dirs = array(
 	APP_DIR . '/../../application/Nextras',
 	APP_DIR . '/../../datagrid/Nextras',
 	APP_DIR . '/../../forms/Nextras',
+	APP_DIR . '/../../latte-macros/Nextras',
 );
 foreach ($dirs as $dir) {
 	if (file_exists($dir)) {
