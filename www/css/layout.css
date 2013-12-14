@@ -1,4 +1,4 @@
-body { padding-top: 20px; }
+body { padding-top: 70px; }
 h1 { margin: 0; }
 
 .addon-block { background: #eee; border-radius: 5px; padding: 10px 30px; margin-bottom: 20px; }
@@ -9,8 +9,8 @@ h1 { margin: 0; }
 
 .bulk { border: 1px solid #ddd; border-radius: 3px; background: #fff; padding: 10px 15px; display: block; text-decoration: none; color: #333; }
 .bulk:hover { text-decoration: none; color: #333; border-color: #ccc; cursor: pointer; box-shadow: 0 0 2px rgba(0, 0, 0, 0.1); }
-.bulk h3 { }
-.bulk h3 small { display: block; font-size: 22px; }
+.bulk h2 { }
+.bulk h2 em { font-style: normal; color: #aaa; }
 .bulk p { font-size: 15px; }
 .bulk p small { font-size: 13px; }
 
@@ -20,6 +20,8 @@ form > table tr { border-bottom: 1px solid #ddd; }
 form > table tr:last-child { border: none; }
 
 /* chrome fix */
-.datagrid thead th { max-width: 150px; }
+.grid thead th { max-width: 150px; }
 
-.footer { color: #888; font-size: 13px; margin-top: 200px; }
+.footer { color: #888; font-size: 13px; margin-top: 50px; }
+
+code { background: #fff; color: #555; border: 1px solid #dedede; padding: 2px 5px; }
