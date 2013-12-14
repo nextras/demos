@@ -6,7 +6,7 @@ use Nette\Application\Routers\Route;
 require __DIR__ . '/../libs/autoload.php';
 
 
-
+umask(0);
 $configurator = new Nette\Config\Configurator;
 $configurator->enableDebugger(__DIR__ . '/../log');
 $configurator->setTempDirectory(__DIR__ . '/../temp');
