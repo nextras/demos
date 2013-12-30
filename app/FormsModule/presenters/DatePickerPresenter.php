@@ -45,6 +45,7 @@ final class DatePickerPresenter extends BasePresenter
 		$form->addSubmit('save', 'Save');
 
 		$form->onSuccess[] = $this->processForm;
+		$form->setRenderer(new Nextras\Forms\Rendering\Bs3FormRenderer);
 		return $form;
 	}
 
