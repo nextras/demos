@@ -31,7 +31,10 @@ $container = $configurator->createContainer();
 
 $router = $container->getByType('Nette\Application\Routers\RouteList');
 $router[] = new Route('', 'Homepage:default');
-$router[] = new Route('<presenter>/<action>');
+$router[] = new Route('<module>', 'Default:default');
+$router[] = new Route('<module>/<presenter>[/<action>]', [
+	'action' => 'default'
+]);
 
 $container->getByType('Nette\Application\Application')->run();
 
