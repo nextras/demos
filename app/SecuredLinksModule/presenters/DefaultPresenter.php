@@ -1,6 +1,6 @@
 <?php
 
-namespace Nextras\Demos\Application;
+namespace Nextras\Demos\SecuredLinks;
 
 final class DefaultPresenter extends BasePresenter
 {
