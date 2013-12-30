@@ -29,10 +29,11 @@ $loader->register();
 $configurator->addConfig(__DIR__ . '/config.neon');
 $container = $configurator->createContainer();
 
-$container->router[] = new Route('', 'Homepage:default');
-$container->router[] = new Route('<presenter>/<action>');
+$router = $container->getByType('Nette\Application\Routers\RouteList');
+$router[] = new Route('', 'Homepage:default');
+$router[] = new Route('<presenter>/<action>');
 
-$container->application->run();
+$container->getByType('Nette\Application\Application')->run();
 
 
 
