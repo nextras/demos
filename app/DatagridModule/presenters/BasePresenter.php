@@ -9,8 +9,8 @@ use Nette\Utils\Paginator;
 
 abstract class BasePresenter extends Demos\BasePresenter
 {
-	/** @var Nette\Database\SelectionFactory @inject */
-	public $selectionFactory;
+	/** @var Nette\Database\Context @inject */
+	public $context;
 
 	public function beforeRender()
 	{
@@ -49,7 +49,7 @@ abstract class BasePresenter extends Demos\BasePresenter
 				$filters[$k. ' LIKE ?'] = "%$v%";
 		}
 
-		$selection = $this->selectionFactory->table('user')->where($filters);
+		$selection = $this->context->table('user')->where($filters);
 		if ($order) {
 			$selection->order(implode(' ', $order));
 		}
