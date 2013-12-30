@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "093c35b7c88c95ca2f972d2099d8d8ee",
+    "hash": "4e16430418d0193706c8314f384cea5e",
     "packages": [
         {
             "name": "nette/nette",
@@ -122,16 +122,16 @@
         },
         {
             "name": "nextras/forms",
-            "version": "v1.3.0-RC2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nextras/forms.git",
-                "reference": "bf5042bfa27ca3b0d1c8ba3e00567e74e2668f3d"
+                "reference": "625010b42d96c05240124d9c78ebf73e53cef929"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nextras/forms/zipball/bf5042bfa27ca3b0d1c8ba3e00567e74e2668f3d",
-                "reference": "bf5042bfa27ca3b0d1c8ba3e00567e74e2668f3d",
+                "url": "https://api.github.com/repos/nextras/forms/zipball/625010b42d96c05240124d9c78ebf73e53cef929",
+                "reference": "625010b42d96c05240124d9c78ebf73e53cef929",
                 "shasum": ""
             },
             "require": {
@@ -161,6 +161,11 @@
                     "homepage": "http://davidgrudl.com"
                 },
                 {
+                    "name": "Jan Škrášek",
+                    "email": "hrach.cz@gmail.com",
+                    "homepage": "http://jan.skrasek.com"
+                },
+                {
                     "name": "Nextras Community",
                     "homepage": "https://github.com/nextras/forms/graphs/contributors"
                 }
@@ -170,7 +175,7 @@
                 "form",
                 "nette"
             ],
-            "time": "2013-12-30 18:56:03"
+            "time": "2013-12-30 22:48:02"
         },
         {
             "name": "nextras/latte-macros",
@@ -275,7 +280,7 @@
     "stability-flags": {
         "nette/nette": 5,
         "nextras/datagrid": 5,
-        "nextras/forms": 5
+        "nextras/forms": 20
     },
     "platform": {
         "php": ">= 5.3.0"

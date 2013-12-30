@@ -1,0 +1,13 @@
+{block #content}
+
+<h4>Typehead demo</h4>
+
+<div class="row">
+	<div class="col-sm-6">
+		{control form}
+	</div>
+</div>
+
+{ifset $formValues}
+	{include ../@dumper.latte}
+{/ifset}
