@@ -12,7 +12,7 @@ final class FullPresenter extends BasePresenter
 	{
 		$grid = new Nextras\Datagrid\Datagrid;
 		$grid->addColumn('id');
-		$grid->addColumn('firstname')->enableSort();
+		$grid->addColumn('firstname')->enableSort($grid::ORDER_ASC);
 		$grid->addColumn('surname')->enableSort();
 		$grid->addColumn('gender')->enableSort();
 		$grid->addColumn('birthday')->enableSort();
@@ -27,7 +27,7 @@ final class FullPresenter extends BasePresenter
 			$form->addSelect('gender', NULL, array(
 				'male' => 'male',
 				'female' => 'female',
-			))->setPrompt('---');
+			))->setPrompt('---')->setDefaultValue('male');
 
 			return $form;
 		});
