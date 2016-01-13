@@ -34,7 +34,7 @@ final class TypeaheadPresenter extends BasePresenter
 		$form = new Form;
 		$form->addTypeahead('autocomplete', 'Day', function($query) {
 			$send = [];
-			$data = ['monday', 'thusday', 'wendesday', 'thursday', 'friday', 'saturday', 'sunday'];
+			$data = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 			foreach ($data as $value) {
 				if (strpos($value, $query) !== FALSE) {
 					$send[] = $value;
